@@ -1,4 +1,4 @@
-package ru.kazakova_net.bookstoreapp;
+package ru.kazakova_net.bookstore;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ru.kazakova_net.bookstoreapp", appContext.getPackageName());
+        assertEquals("ru.kazakova_net.bookstore", appContext.getPackageName());
     }
 }

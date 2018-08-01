@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kazakova_net.bookstoreapp.data;
+package ru.kazakova_net.bookstore.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static ru.kazakova_net.bookstoreapp.data.BookContract.BookEntry;
+import static ru.kazakova_net.bookstore.data.BookContract.BookEntry;
 
 /**
  * Database helper for BookStore app. Manages database creation and version management.

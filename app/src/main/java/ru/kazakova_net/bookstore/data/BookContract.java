@@ -1,4 +1,4 @@
-package ru.kazakova_net.bookstoreapp.data;
+package ru.kazakova_net.bookstore.data;
 
 import android.provider.BaseColumns;
 

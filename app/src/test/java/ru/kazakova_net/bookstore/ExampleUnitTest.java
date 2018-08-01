@@ -1,4 +1,4 @@
-package ru.kazakova_net.bookstoreapp;
+package ru.kazakova_net.bookstore;
 
 import org.junit.Test;
 
