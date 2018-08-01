@@ -1,4 +1,4 @@
-package ru.kazakova_net.inventoryapp;
+package ru.kazakova_net.bookstoreapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
