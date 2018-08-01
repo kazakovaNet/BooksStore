@@ -14,14 +14,21 @@ import static ru.kazakova_net.bookstore.data.BookContract.BookEntry;
 public class MainActivity extends AppCompatActivity {
     
     private static final String LOG_TAG = "BOOK_LOG";
-    private BookStoreDbHelper mDbHelper;
+    
+    /**
+     * Database helper
+     */
+    private BookStoreDbHelper mBookStoreDbHelper;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        // Test add new book into database
         insertBook();
+        
+        // Test get books entries from database
         getDataFromDb();
     }
     
@@ -37,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         String supplierPhoneNumber = "+79852173660";
         
         // Create database helper
-        mDbHelper = new BookStoreDbHelper(this);
+        mBookStoreDbHelper = new BookStoreDbHelper(this);
         
         // Gets the database in write mode
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        SQLiteDatabase db = mBookStoreDbHelper.getWritableDatabase();
         
         // Create a ContentValues object where column names are the keys,
         // and book attributes from the dummy data are the values.
@@ -69,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private void getDataFromDb() {
         // Create and/or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        SQLiteDatabase db = mBookStoreDbHelper.getReadableDatabase();
         
         // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
+        // we will actually use after this query.
         String[] projection = {
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_NAME,
@@ -95,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
         try {
             // Create a message in the log that looks like this:
             //
-            // The books table contains <number of rows in Cursor> books..
+            // The books table contains <number of rows in Cursor> books.
             // _id - name - price - quantity - supplier name - supplier phone number
             //
             // In the while loop below, iterate through the rows of the cursor and write
             // the information from each column in this order.
-            messageBuilder.append("The pets table contains ").append(cursor.getCount()).append(" books.\n\n");
+            messageBuilder.append("The books table contains ").append(cursor.getCount()).append(" books.\n\n");
             messageBuilder.append(BookEntry._ID + " - " +
                     BookEntry.COLUMN_BOOK_NAME + " - " +
                     BookEntry.COLUMN_BOOK_PRICE + " - " +
@@ -136,11 +143,11 @@ public class MainActivity extends AppCompatActivity {
                         .append(currentSupplierPhone);
             }
         } finally {
-            // Always close the cursor when you're done reading from it. This releases all its
-            // resources and makes it invalid.
+            // Close the cursor
             cursor.close();
         }
         
+        // Write into log
         Log.d(LOG_TAG, messageBuilder.toString());
     }
 }

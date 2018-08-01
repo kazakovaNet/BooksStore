@@ -3,7 +3,7 @@ package ru.kazakova_net.bookstore.data;
 import android.provider.BaseColumns;
 
 /**
- * API Contract for the Inventory app.
+ * API Contract for the BookStore app.
  */
 public final class BookContract {
     
@@ -57,7 +57,7 @@ public final class BookContract {
          * Type: TEXT
          */
         public final static String COLUMN_BOOK_SUPPLIER_NAME = "supplier_name";
-    
+        
         /**
          * Phone number of supplier of the book.
          * <p>
@@ -65,5 +65,4 @@ public final class BookContract {
          */
         public final static String COLUMN_BOOK_SUPPLIER_PHONE = "supplier_phone_number";
     }
-    
 }
