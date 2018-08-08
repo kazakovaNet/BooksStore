@@ -30,7 +30,7 @@ public class BookStoreDbHelper extends SQLiteOpenHelper {
     /**
      * Database version.
      */
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     /**
      * Name of the database file
      */
@@ -53,7 +53,7 @@ public class BookStoreDbHelper extends SQLiteOpenHelper {
         // Create a String that contains the SQL statement to create the books table
         String SQL_CREATE_BOOKS_TABLE = "CREATE TABLE " + BookEntry.TABLE_NAME +
                 " (" + BookEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + BookEntry.COLUMN_BOOK_NAME + " TEXT, "
+                + BookEntry.COLUMN_BOOK_TITLE + " TEXT, "
                 + BookEntry.COLUMN_BOOK_PRICE + " INTEGER, "
                 + BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER, "
                 + BookEntry.COLUMN_BOOK_SUPPLIER_NAME + " TEXT, "
@@ -68,10 +68,6 @@ public class BookStoreDbHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        // Delete table
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + BookEntry.TABLE_NAME + ";");
-        
-        // Create new version of table
-        onCreate(sqLiteDatabase);
+    
     }
 }
