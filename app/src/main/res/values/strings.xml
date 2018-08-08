@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Book Store</string>
-    <string name="empty_view_title_text">Book shelf is empty</string>
+    <string name="empty_view_title_text">Bookshelf is empty</string>
     <string name="empty_view_subtitle_text">Add new book</string>
 
     <!-- Label for editor menu option to save book and leave editor [CHAR LIMIT=20] -->
@@ -11,4 +11,37 @@
 
     <!-- Label for overflow menu option that deletes all book data in the app [CHAR LIMIT=20] -->
     <string name="action_delete_all_entries">Delete All Books</string>
+
+    <!-- Label for title category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_title">Title</string>
+
+    <!-- Label for price information in the editor [CHAR LIMIT=30] -->
+    <string name="category_price">Price</string>
+
+    <!-- Label for quantity information in the editor [CHAR LIMIT=30] -->
+    <string name="category_quantity">Quantity</string>
+
+    <!-- Label for supplier information in the editor [CHAR LIMIT=30] -->
+    <string name="category_supplier">Supplier</string>
+
+    <!-- Text hint for title field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_title">Title</string>
+
+    <!-- Text hint for price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_price">Price</string>
+
+    <!-- Text hint for supplier name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_name">Supplier Name</string>
+
+    <!-- Text hint for supplier phone field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_phone">Supplier Phone</string>
+
+    <!-- Units for quantity of the book (pieces) [CHAR LIMIT=5] -->
+    <string name="unit_book_quantity">PCs</string>
+
+    <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_book">Add a Book</string>
+
+    <!-- Title for the activity to edit an existing book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_edit_book">Edit Book</string>
 </resources>
