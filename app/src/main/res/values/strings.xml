@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">BookStore</string>
+    <string name="app_name">Book Store</string>
+    <string name="empty_view_title_text">Book shelf is empty</string>
+    <string name="empty_view_subtitle_text">Add new book</string>
+
+    <!-- Label for editor menu option to save book and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current book [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for overflow menu option that deletes all book data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Books</string>
 </resources>
