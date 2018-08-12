@@ -44,4 +44,16 @@
 
     <!-- Title for the activity to edit an existing book [CHAR LIMIT=20] -->
     <string name="editor_activity_title_edit_book">Edit Book</string>
+    <string name="editor_insert_book_failed" />
+    <string name="editor_insert_book_successful" />
+    <string name="editor_update_book_failed" />
+    <string name="editor_update_book_successful" />
+    <string name="unsaved_changes_dialog_msg" />
+    <string name="discard" />
+    <string name="keep_editing" />
+    <string name="delete_dialog_msg" />
+    <string name="delete" />
+    <string name="cancel" />
+    <string name="editor_delete_book_failed" />
+    <string name="editor_delete_book_successful" />
 </resources>
