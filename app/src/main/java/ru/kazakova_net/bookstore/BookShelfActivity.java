@@ -60,7 +60,6 @@ public class BookShelfActivity extends AppCompatActivity implements
         mBookStoreAdapter = new BookStoreAdapter(this, null);
         bookListView.setAdapter(mBookStoreAdapter);
         
-        // Setup the item click listener
         bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
