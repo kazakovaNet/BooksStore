@@ -35,6 +35,7 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:hint="@string/hint_book_title"
+            android:text="Book 1"
             android:inputType="textCapWords" />
     </LinearLayout>
 
@@ -57,7 +58,8 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:hint="@string/hint_book_price"
-            android:inputType="textCapWords" />
+            android:text="100"
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <!-- Quantity category -->
@@ -148,6 +150,7 @@
             <EditText
                 android:id="@+id/edit_supplier_name"
                 style="@style/EditorFieldStyle"
+                android:text="Supplier 1"
                 android:hint="@string/hint_supplier_name"
                 android:inputType="textCapWords" />
 
@@ -156,6 +159,7 @@
                 android:id="@+id/edit_supplier_phone"
                 style="@style/EditorFieldStyle"
                 android:hint="@string/hint_supplier_phone"
+                android:text="123456789"
                 android:inputType="phone" />
         </LinearLayout>
     </LinearLayout>

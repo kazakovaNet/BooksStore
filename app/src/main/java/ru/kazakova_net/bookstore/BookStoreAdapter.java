@@ -15,9 +15,11 @@
  */
 package ru.kazakova_net.bookstore;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.text.TextUtils;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,37 +73,51 @@ public class BookStoreAdapter extends CursorAdapter {
         TextView priceTextView = view.findViewById(R.id.book_price);
         TextView quantityTextView = view.findViewById(R.id.book_quantity);
         
-        // Find the button
-        ImageButton plusImageButton = view.findViewById(R.id.plus);
-        ImageButton minusImageButton = view.findViewById(R.id.minus);
+        // Find the button, by clicking on which the number of books will decrease
+        ImageButton saleImageButton = view.findViewById(R.id.sale);
         
         // Find the columns of book attributes that we're interested in
+        int idColumnIndex = cursor.getColumnIndex(BookEntry._ID);
         int titleColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_TITLE);
         int priceColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
         int quantityColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
         
         // Read the book attributes from the Cursor for the current book
+        final int bookId = cursor.getInt(idColumnIndex);
         String bookTitle = cursor.getString(titleColumnIndex);
         String bookPrice = cursor.getString(priceColumnIndex);
-        String bookQuantity = cursor.getString(quantityColumnIndex);
+        final String bookQuantity = cursor.getString(quantityColumnIndex);
         
         // Update the TextViews with the attributes for the current book
         titleTextView.setText(bookTitle);
-        priceTextView.setText(bookPrice);
-        quantityTextView.setText(bookQuantity);
+        priceTextView.setText(context.getString(R.string.item_price_label, bookPrice));
+        quantityTextView.setText(context.getString(R.string.item_quantity_label, bookQuantity));
         
-        // Set click listeners
-        plusImageButton.setOnClickListener(new View.OnClickListener() {
+        // Assign a click handler to the Sale button
+        saleImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Plus", Toast.LENGTH_SHORT).show();
-            }
-        });
-    
-        minusImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Minus", Toast.LENGTH_SHORT).show();
+                int quantityInteger = Integer.parseInt(bookQuantity) - 1;
+                Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookId);
+                Toast toast = Toast.makeText(context, "One book sailed!", Toast.LENGTH_SHORT);
+                
+                if (quantityInteger >= 0) {
+                    ContentValues values = new ContentValues();
+                    values.put(BookEntry.COLUMN_BOOK_QUANTITY, Integer.parseInt(String.valueOf(quantityInteger)));
+                    
+                    
+                    context.getContentResolver().update(currentBookUri, values, null, null);
+                    
+                    if (toast != null) {
+                        toast.cancel();
+                        toast.show();
+                    }
+                    
+                }
+                
+                if (quantityInteger == 0) {
+                    context.getContentResolver().delete(currentBookUri, null, null);
+                }
             }
         });
     }
