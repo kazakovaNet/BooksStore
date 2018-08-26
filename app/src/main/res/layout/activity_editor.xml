@@ -167,17 +167,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end">
+        android:layout_marginTop="32dp"
+        android:gravity="center">
 
         <ImageButton
+            android:id="@+id/phone_call"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_phone_call" />
 
         <ImageButton
             android:id="@+id/delete_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:background="@null"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_trash"

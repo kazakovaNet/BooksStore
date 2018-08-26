@@ -83,6 +83,8 @@
 
     <string name="item_price_label">Price: %s$</string>
     <string name="item_quantity_label">Quantity: %s PCs</string>
+    <string name="enter_phone_number_msg">Please enter the phone number</string>
+    <string name="fill_all_fields_msg">All fields must be filled in</string>
 
 
 </resources>
