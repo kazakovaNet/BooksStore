@@ -35,8 +35,8 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:hint="@string/hint_book_title"
-            android:text="Book 1"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:text="Book 1" />
     </LinearLayout>
 
     <!-- Price category -->
@@ -58,8 +58,8 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:hint="@string/hint_book_price"
-            android:text="100"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:text="100" />
     </LinearLayout>
 
     <!-- Quantity category -->
@@ -109,9 +109,9 @@
                 android:id="@+id/minus_button"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/edit_book_quantity"
                 android:background="@null"
-                android:layout_centerVertical="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_minus"
                 tools:ignore="ContentDescription" />
@@ -150,17 +150,37 @@
             <EditText
                 android:id="@+id/edit_supplier_name"
                 style="@style/EditorFieldStyle"
-                android:text="Supplier 1"
                 android:hint="@string/hint_supplier_name"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:text="Supplier 1" />
 
             <!-- Phone field -->
             <EditText
                 android:id="@+id/edit_supplier_phone"
                 style="@style/EditorFieldStyle"
                 android:hint="@string/hint_supplier_phone"
-                android:text="123456789"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="123456789" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_trash"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 </LinearLayout>

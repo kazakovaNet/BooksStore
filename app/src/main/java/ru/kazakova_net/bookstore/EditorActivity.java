@@ -58,6 +58,8 @@ public class EditorActivity extends AppCompatActivity implements
     private EditText mSupplierPhoneEditText;
     private ImageButton mPlusImageButton;
     private ImageButton mMinusImageButton;
+    private ImageButton mDeleteButton;
+    private ImageButton mCallButton;
     
     /**
      * OnTouchListener that listens for any user touches on a View, implying that they are modifying
@@ -106,6 +108,9 @@ public class EditorActivity extends AppCompatActivity implements
         mSupplierPhoneEditText = findViewById(R.id.edit_supplier_phone);
         mMinusImageButton = findViewById(R.id.minus_button);
         mPlusImageButton = findViewById(R.id.plus_button);
+        mDeleteButton = findViewById(R.id.delete_button);
+//        mCallButton = findViewById(R.id.plus_button);
+        
         
         // Set the initial value of the number of books
         if (mCurrentBookUri == null) {
@@ -125,8 +130,10 @@ public class EditorActivity extends AppCompatActivity implements
         mMinusImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBookHasChanged = true;
+                
                 int currentQuantity = Integer.parseInt(mQuantityEditText.getText().toString());
-                if (currentQuantity > 0) {
+                if (currentQuantity > 1) {
                     mQuantityEditText.setText(String.valueOf(--currentQuantity));
                 }
             }
@@ -135,10 +142,25 @@ public class EditorActivity extends AppCompatActivity implements
         mPlusImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBookHasChanged = true;
+                
                 int currentQuantity = Integer.parseInt(mQuantityEditText.getText().toString());
                 mQuantityEditText.setText(String.valueOf(++currentQuantity));
             }
         });
+        
+        // If this is a new book, hide the "Delete" menu item.
+        if (mCurrentBookUri == null) {
+            mDeleteButton.setVisibility(View.GONE);
+        } else {
+            mDeleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Pop up confirmation dialog for deletion
+                    showDeleteConfirmationDialog();
+                }
+            });
+        }
     }
     
     /**
@@ -216,21 +238,6 @@ public class EditorActivity extends AppCompatActivity implements
         return true;
     }
     
-    /**
-     * This method is called after invalidateOptionsMenu(), so that the
-     * menu can be updated (some menu items can be hidden or made visible).
-     */
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        // If this is a new book, hide the "Delete" menu item.
-        if (mCurrentBookUri == null) {
-            MenuItem menuItem = menu.findItem(R.id.action_delete);
-            menuItem.setVisible(false);
-        }
-        return true;
-    }
-    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -239,11 +246,6 @@ public class EditorActivity extends AppCompatActivity implements
                 if (saveBook()) {
                     finish();
                 }
-                
-                return true;
-            case R.id.action_delete:
-                // Pop up confirmation dialog for deletion
-                showDeleteConfirmationDialog();
                 
                 return true;
             case android.R.id.home:

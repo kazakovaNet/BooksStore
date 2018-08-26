@@ -99,22 +99,19 @@ public class BookStoreAdapter extends CursorAdapter {
             public void onClick(View v) {
                 int quantityInteger = Integer.parseInt(bookQuantity) - 1;
                 Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookId);
-                Toast toast = Toast.makeText(context, "One book sailed!", Toast.LENGTH_SHORT);
                 
+                // Check for a negative value
                 if (quantityInteger >= 0) {
                     ContentValues values = new ContentValues();
                     values.put(BookEntry.COLUMN_BOOK_QUANTITY, Integer.parseInt(String.valueOf(quantityInteger)));
                     
-                    
+                    // The record is updated
                     context.getContentResolver().update(currentBookUri, values, null, null);
-                    
-                    if (toast != null) {
-                        toast.cancel();
-                        toast.show();
-                    }
-                    
+    
+                    Toast.makeText(context, "One book sailed!", Toast.LENGTH_SHORT).show();
                 }
                 
+                // If the number has decreased to 0, the book is removed from storage
                 if (quantityInteger == 0) {
                     context.getContentResolver().delete(currentBookUri, null, null);
                 }
