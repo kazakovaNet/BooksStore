@@ -186,7 +186,7 @@ public class EditorActivity extends AppCompatActivity implements
         
         // Check if this is a new book and check 
         // if all fields in the editor are filled
-        if (mCurrentBookUri == null &&
+        if (mCurrentBookUri == null ||
                 (TextUtils.isEmpty(titleString) || TextUtils.isEmpty(priceString) ||
                         TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(supplierName) ||
                         TextUtils.isEmpty(supplierPhone))) {
