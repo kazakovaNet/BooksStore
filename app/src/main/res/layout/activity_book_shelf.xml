@@ -10,6 +10,7 @@
      limitations under the License.
 --><!-- Layout for the list of books -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -66,5 +67,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_book" />
+        android:src="@mipmap/ic_launcher_round"
+        app:fabSize="normal" />
 </RelativeLayout>

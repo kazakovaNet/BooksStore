@@ -37,24 +37,51 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/sale"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/view"
         app:layout_constraintStart_toEndOf="@+id/book_price"
         app:layout_constraintTop_toBottomOf="@+id/book_title"
         tools:text="@string/item_quantity_label" />
 
-    <ImageButton
-        android:id="@+id/sale"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <View
+        android:id="@+id/view"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:background="@null"
-        android:focusableInTouchMode="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_cart"
+        android:background="@drawable/border_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sale_wrapper"
+        app:layout_constraintTop_toBottomOf="@+id/book_title" />
+
+    <LinearLayout
+        android:id="@+id/sale_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_title"
-        tools:ignore="ContentDescription"
-        tools:text="Sale" />
+        app:layout_constraintTop_toBottomOf="@+id/book_title">
+
+        <ImageButton
+            android:id="@+id/sale"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:focusableInTouchMode="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_cart"
+            tools:ignore="ContentDescription"
+            tools:text="Sale" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/sale"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
